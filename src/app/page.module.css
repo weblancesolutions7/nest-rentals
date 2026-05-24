@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 100px 0 80px 0;
+  padding: var(--space-hero-top) 0 var(--space-hero-bottom) 0;
 }
 
 .heroBgContainer {
@@ -64,7 +64,7 @@
 .heroContentGrid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 60px;
+  gap: var(--space-layout-gap);
   align-items: center;
 }
 
@@ -272,7 +272,7 @@
 
 /* 3. STATS SECTION */
 .statsSection {
-  padding: 80px 0 40px 0;
+  padding: var(--space-section-md) 0 32px 0;
 }
 
 .statsGrid {
@@ -312,7 +312,7 @@
 .sectionHeaderCentered {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 60px auto;
+  margin: 0 auto var(--space-header-bottom) auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -342,7 +342,7 @@
 
 /* 4. SERVICES SECTION */
 .servicesSection {
-  padding: 80px 0;
+  padding: var(--space-section-md) 0;
   background: linear-gradient(180deg, transparent 0%, #08090d 50%, transparent 100%);
 }
 
@@ -467,13 +467,13 @@
 
 /* 5. INDUSTRIES SECTION */
 .industriesSection {
-  padding: 80px 0;
+  padding: var(--space-section-md) 0;
 }
 
 .industriesLayout {
   display: grid;
   grid-template-columns: 1fr 2.2fr;
-  gap: 60px;
+  gap: var(--space-layout-gap);
   align-items: center;
 }
 
@@ -599,7 +599,7 @@
 
 /* 6. VALUES SECTION */
 .valuesSection {
-  padding: 60px 0;
+  padding: var(--space-section-sm) 0;
   background-color: var(--background-secondary);
   border-top: 1px solid rgba(255, 255, 255, 0.03);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
@@ -635,7 +635,7 @@
 
 /* 7. ABOUT US PREVIEW */
 .aboutPreviewSection {
-  padding: 100px 0;
+  padding: var(--space-section) 0 var(--space-cta-top);
 }
 
 .aboutPreviewGrid {
@@ -707,7 +707,7 @@
 
 /* 8. CTA SECTION */
 .ctaSection {
-  padding: 40px 0 100px 0;
+  padding: var(--space-cta-top) 0 var(--space-cta-bottom);
 }
 
 .ctaCalloutBox {

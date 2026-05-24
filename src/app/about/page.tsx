@@ -2,7 +2,18 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Shield, Award, Clock, Users, Zap, CheckCircle2, ChevronRight, Phone, ArrowRight
+  Shield,
+  Award,
+  Clock,
+  Users,
+  CheckCircle2,
+  Phone,
+  ArrowRight,
+  ShieldCheck,
+  BadgeCheck,
+  UserRound,
+  Star,
+  Lightbulb,
 } from "lucide-react";
 import styles from "./page.module.css";
 
@@ -18,33 +29,33 @@ export default function AboutPage() {
     {
       title: "Safety First",
       desc: "We prioritize safety in every step of our work.",
-      icon: <Shield size={24} />
+      icon: ShieldCheck,
     },
     {
       title: "Reliability",
       desc: "We deliver what we promise, every time.",
-      icon: <Award size={24} />
+      icon: BadgeCheck,
     },
     {
       title: "On-Time Delivery",
       desc: "We respect time and ensure on-schedule delivery.",
-      icon: <Clock size={24} />
+      icon: Clock,
     },
     {
       title: "Customer Focused",
       desc: "Your success is our top priority.",
-      icon: <Users size={24} />
+      icon: UserRound,
     },
     {
       title: "Quality Assured",
       desc: "We maintain the highest standards in equipment and service.",
-      icon: <Award size={24} />
+      icon: Star,
     },
     {
       title: "Innovation",
       desc: "We continuously improve to deliver better solutions.",
-      icon: <Zap size={24} />
-    }
+      icon: Lightbulb,
+    },
   ];
 
   const choosePoints = [
@@ -77,9 +88,9 @@ export default function AboutPage() {
         <div className={styles.container}>
 
           {/* Top two-column grid */}
-          <div className={styles.heroGrid}>
+          <div className={`${styles.heroGrid} hero-split`}>
             {/* Left: text */}
-            <div className={styles.heroLeft}>
+            <div className={`${styles.heroLeft} hero-split__content`}>
               <span className={styles.sectionTagline}>ABOUT NEST</span>
               <h1 className={styles.heroTitle}>
                 POWERING EVENTS.<br />
@@ -100,17 +111,17 @@ export default function AboutPage() {
             </div>
 
             {/* Right: blended image */}
-            <div className={styles.heroRight}>
-              <div className={styles.heroImageWrapper}>
+            <div className={`${styles.heroRight} hero-split__media`}>
+              <div className={`${styles.heroImageWrapper} hero-split__frame`}>
                 <Image
                   src="/images/Website Images/6e81aa12-b980-4cc8-ba9f-36ae66496939.png"
                   alt="NEST Equipment Rental — About Us"
                   fill
                   priority
-                  sizes="(max-width: 992px) 100vw, 50vw"
+                  sizes="(max-width: 1100px) 100vw, 50vw"
                   className={styles.heroImg}
                 />
-                <div className={styles.heroImgBlend} />
+                <div className={`${styles.heroImgBlend} hero-split__blend`} />
               </div>
             </div>
           </div>
@@ -138,7 +149,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section id="story" className={styles.storySection}>
+      <section id="story" className={`${styles.storySection} scroll-anchor`}>
         <div className={styles.container}>
           <div className={styles.storyLayout}>
             {/* Left Column Content */}
@@ -179,19 +190,36 @@ export default function AboutPage() {
       {/* Our Values */}
       <section className={styles.valuesSection}>
         <div className={styles.container}>
-          <div className={styles.valuesHeader}>
-            <span className={styles.sectionTagline}>OUR VALUES</span>
-            <h2 className={styles.valuesTitle}>THE PRINCIPLES THAT POWER EVERYTHING WE DO</h2>
-          </div>
+          <div className={styles.valuesPanel}>
+            <div className={styles.valuesHeader}>
+              <span className={styles.sectionTagline}>OUR VALUES</span>
+              <h2 className={styles.valuesTitle}>
+                THE PRINCIPLES THAT POWER EVERYTHING WE DO
+              </h2>
+            </div>
 
-          <div className={styles.valuesGrid}>
-            {valuesList.map((val, idx) => (
-              <div key={idx} className={`${styles.valueCard} glass-card`}>
-                <div className={styles.valueIconWrapper}>{val.icon}</div>
-                <h3>{val.title}</h3>
-                <p>{val.desc}</p>
-              </div>
-            ))}
+            <div className={styles.valuesGrid}>
+              {valuesList.map((val, idx) => {
+                const Icon = val.icon;
+                return (
+                  <React.Fragment key={val.title}>
+                    <div className={styles.valueItem}>
+                      <Icon
+                        size={32}
+                        strokeWidth={1.5}
+                        className={styles.valueIcon}
+                        aria-hidden
+                      />
+                      <h3 className={styles.valueItemTitle}>{val.title}</h3>
+                      <p className={styles.valueItemDesc}>{val.desc}</p>
+                    </div>
+                    {idx < valuesList.length - 1 && (
+                      <div className={styles.valueDivider} aria-hidden />
+                    )}
+                  </React.Fragment>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

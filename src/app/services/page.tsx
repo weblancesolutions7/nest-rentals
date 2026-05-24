@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
@@ -28,6 +28,16 @@ interface ServiceCategory {
 }
 
 export default function ServicesPage() {
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+      document.querySelector(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
 
   const servicesData: ServiceCategory[] = [
     {
@@ -303,6 +313,7 @@ export default function ServicesPage() {
 
   const overviewCards = [
     {
+      anchorId: "power",
       title: "Power Generation",
       desc: "Reliable generators from 20 KVA to 1500 KVA for any event or project size.",
       image: "/images/Website Images/Power Genrator.png",
@@ -316,6 +327,7 @@ export default function ServicesPage() {
       ],
     },
     {
+      anchorId: "lighting",
       title: "Lighting Solutions",
       desc: "High-performance lighting solutions for maximum visibility and safety.",
       image: "/images/Website Images/Lighting Soloutions.png",
@@ -329,6 +341,7 @@ export default function ServicesPage() {
       ],
     },
     {
+      anchorId: "distribution",
       title: "Power Distribution",
       desc: "Safe and efficient power distribution systems and cabling solutions.",
       image: "/images/Website Images/power distrubutions.png",
@@ -342,6 +355,7 @@ export default function ServicesPage() {
       ],
     },
     {
+      anchorId: "support",
       title: "Support Equipment",
       desc: "A wide range of support equipment to keep your operations running.",
       image: "/images/Website Images/Support Equipment.png",
@@ -355,6 +369,7 @@ export default function ServicesPage() {
       ],
     },
     {
+      anchorId: "control",
       title: "Control & Switchgear",
       desc: "Advanced control solutions for seamless power management.",
       image: "/images/Website Images/6e81aa12-b980-4cc8-ba9f-36ae66496939.png",
@@ -368,6 +383,7 @@ export default function ServicesPage() {
       ],
     },
     {
+      anchorId: "cabling",
       title: "Cabling Solutions",
       desc: "High-quality cables and accessories for safe and reliable connections.",
       image: "/images/Website Images/a2f26f8d-7b20-441a-9496-c6f21002a3d3.png",
@@ -381,6 +397,7 @@ export default function ServicesPage() {
       ],
     },
     {
+      anchorId: "fuel",
       title: "Fuel Solutions",
       desc: "Secure fuel storage and delivery solutions for uninterrupted power.",
       image: "/images/Website Images/c1e08311-5d29-40c3-96f4-7b72a148d927.png",
@@ -394,6 +411,7 @@ export default function ServicesPage() {
       ],
     },
     {
+      anchorId: "load",
       title: "Load Banks",
       desc: "Load bank solutions for testing and ensuring generator performance.",
       image: "/images/Website Images/689dea75-dd2b-4d83-ae78-7b031b4affe9.png",
@@ -413,8 +431,8 @@ export default function ServicesPage() {
       {/* Hero Header */}
       <section className={styles.heroSection}>
         <div className={styles.container}>
-          <div className={styles.heroGrid}>
-            <div className={styles.heroLeft}>
+          <div className={`${styles.heroGrid} hero-split hero-split--tall`}>
+            <div className={`${styles.heroLeft} hero-split__content`}>
               <span className={styles.sectionTagline}>OUR SERVICES</span>
               <h1 className={styles.heroTitle}>
                 COMPLETE EQUIPMENT<br />
@@ -459,13 +477,13 @@ export default function ServicesPage() {
               </div>
             </div>
             
-            <div className={styles.heroRight}>
-              <div className={styles.heroImageWrapper}>
+            <div className={`${styles.heroRight} hero-split__media`}>
+              <div className={`${styles.heroImageWrapper} hero-split__frame`}>
                 <Image
                   src="/images/Website Images/6e81aa12-b980-4cc8-ba9f-36ae66496939.png"
                   alt="Complete Equipment Rental Solutions"
                   fill
-                  sizes="(max-width: 992px) 100vw, 50vw"
+                  sizes="(max-width: 1100px) 100vw, 50vw"
                   priority
                   className={styles.heroImg}
                 />
@@ -486,7 +504,11 @@ export default function ServicesPage() {
 
           <div className={styles.overviewGrid}>
             {overviewCards.map((card, index) => (
-              <div key={index} className={styles.overviewCard}>
+              <div
+                key={card.anchorId}
+                id={card.anchorId}
+                className={`${styles.overviewCard} scroll-anchor`}
+              >
                 {/* Background image */}
                 <div className={styles.overviewCardBg}>
                   <Image src={card.image} alt={card.title} fill className={styles.overviewCardImg} />

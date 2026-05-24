@@ -24,7 +24,7 @@
 
 /* Hero Section — unified two-column + stats */
 .heroSection {
-  padding: 120px 0 0;
+  padding: var(--space-hero-top) 0 0;
   background: #08090d;
   overflow: hidden;
 }
@@ -35,7 +35,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
-  padding-bottom: 60px;
+  padding-bottom: 40px;
 }
 
 /* Left: text content */
@@ -171,7 +171,7 @@
 
 /* Our Story */
 .storySection {
-  padding: 80px 0;
+  padding: var(--space-section-md) 0;
   background-color: var(--background-secondary);
   border-top: 1px solid rgba(255, 255, 255, 0.03);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
@@ -180,7 +180,7 @@
 .storyLayout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: var(--space-layout-gap);
   align-items: center;
 }
 
@@ -225,66 +225,85 @@
 
 /* Our Values */
 .valuesSection {
-  padding: 100px 0;
+  padding: var(--space-section) 0;
+}
+
+.valuesPanel {
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 48px 32px 40px;
 }
 
 .valuesHeader {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 44px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-.valuesTitle {
-  font-size: 32px;
-  font-weight: 800;
-  color: #ffffff;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.valuesGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.valueCard {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 14px;
 }
 
-.valueIconWrapper {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  background-color: rgba(207, 0, 34, 0.08);
-  border: 1px solid rgba(207, 0, 34, 0.15);
-  color: var(--primary);
+.valuesTitle {
+  font-family: var(--font-outfit);
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  max-width: 900px;
+  margin: 0;
+}
+
+.valuesGrid {
   display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.valueItem {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  text-align: center;
+  gap: 14px;
+  padding: 8px 12px;
+}
+
+.valueIcon {
+  color: var(--primary);
   flex-shrink: 0;
 }
 
-.valueCard h3 {
-  font-size: 17px;
-  color: #ffffff;
+.valueItemTitle {
+  font-family: var(--font-outfit);
+  font-size: 15px;
   font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
 }
 
-.valueCard p {
-  font-size: 13.5px;
-  color: var(--foreground-muted);
-  line-height: 1.5;
+.valueItemDesc {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.55;
+  max-width: 160px;
+}
+
+.valueDivider {
+  width: 1px;
+  flex-shrink: 0;
+  align-self: stretch;
+  margin: 4px 0;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* Why Choose Us / Team Section */
 .chooseSection {
-  padding: 100px 0;
+  padding: var(--space-section) 0 var(--space-cta-top);
   background-color: var(--background-secondary);
   border-top: 1px solid rgba(255, 255, 255, 0.03);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
@@ -293,7 +312,7 @@
 .chooseLayout {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
+  gap: var(--space-layout-gap);
   align-items: center;
 }
 
@@ -367,7 +386,7 @@
 
 /* CTA Section */
 .ctaSection {
-  padding: 100px 0;
+  padding: var(--space-cta-top) 0 var(--space-cta-bottom);
 }
 
 .ctaCard {
@@ -486,10 +505,28 @@
 
 /* RESPONSIVE LAYOUTS */
 @media (max-width: 1100px) {
-  .valuesGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .valuesPanel {
+    padding: 40px 24px 32px;
   }
-  
+
+  .valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 16px;
+  }
+
+  .valueDivider {
+    display: none;
+  }
+
+  .valueItem {
+    padding: 0 8px;
+  }
+
+  .valueItemDesc {
+    max-width: 200px;
+  }
+
   .ctaCard {
     flex-direction: column;
     text-align: center;
@@ -512,11 +549,28 @@
   }
 }
 
+@media (max-width: 1100px) {
+  .heroRight {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  .heroImageWrapper {
+    aspect-ratio: auto;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .heroImgBlend {
+    box-shadow: none;
+  }
+}
+
 @media (max-width: 992px) {
   .heroGrid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    padding-bottom: 48px;
+    padding-bottom: 40px;
   }
 
   .heroTitle {
@@ -589,6 +643,21 @@
     display: none;
   }
   
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 12px;
+  }
+
+  .valuesPanel {
+    padding: 32px 20px 28px;
+  }
+
+  .valuesHeader {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 480px) {
   .valuesGrid {
     grid-template-columns: 1fr;
   }

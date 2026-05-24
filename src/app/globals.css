@@ -14,6 +14,18 @@
   
   --font-outfit: 'Outfit', sans-serif;
   --font-inter: 'Inter', sans-serif;
+
+  /* Vertical section spacing (site-wide) */
+  --space-section: 72px;
+  --space-section-md: 56px;
+  --space-section-sm: 48px;
+  --space-hero-top: 100px;
+  --space-hero-bottom: 48px;
+  --space-page-end: 72px;
+  --space-layout-gap: 48px;
+  --space-header-bottom: 40px;
+  --space-cta-top: 32px;
+  --space-cta-bottom: 48px;
 }
 
 * {
@@ -52,6 +64,11 @@ body {
   font-family: var(--font-inter);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Offset fixed header when navigating to in-page anchors */
+.scroll-anchor {
+  scroll-margin-top: 88px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -136,5 +153,139 @@ a {
 
 .animate-pulse-glow {
   animation: pulse-glow 3s infinite ease-in-out;
+}
+
+/* Split hero: right image column becomes full-bleed background (tablet & mobile) */
+@media (max-width: 1100px) {
+  .hero-split {
+    position: relative;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: minmax(clamp(420px, 68vh, 600px), auto) !important;
+    gap: 0 !important;
+    align-items: stretch;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .hero-split.hero-split--tall {
+    grid-template-rows: minmax(clamp(520px, 78vh, 720px), auto) !important;
+  }
+
+  /* Stack content and image in the same grid cell */
+  .hero-split > .hero-split__content,
+  .hero-split > .hero-split__media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .hero-split > .hero-split__media {
+    position: relative !important;
+    z-index: 0;
+    width: 100% !important;
+    min-height: 100%;
+    align-self: stretch;
+    justify-self: stretch;
+    display: block !important;
+  }
+
+  .hero-split > .hero-split__media > .hero-split__frame {
+    position: absolute !important;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100%;
+    aspect-ratio: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden;
+  }
+
+  /* Next.js Image fill wrapper */
+  .hero-split > .hero-split__media > .hero-split__frame > span,
+  .hero-split > .hero-split__media > .hero-split__frame > img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hero-split > .hero-split__media > .hero-split__frame > img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-split > .hero-split__media .hero-split__blend {
+    position: absolute !important;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        105deg,
+        #08090d 0%,
+        rgba(8, 9, 13, 0.88) 34%,
+        rgba(8, 9, 13, 0.5) 62%,
+        rgba(8, 9, 13, 0.25) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(8, 9, 13, 0.15) 0%,
+        rgba(8, 9, 13, 0.65) 70%,
+        #08090d 100%
+      ) !important;
+    box-shadow: none !important;
+  }
+
+  .hero-split > .hero-split__media > .hero-split__frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        105deg,
+        #08090d 0%,
+        rgba(8, 9, 13, 0.88) 34%,
+        rgba(8, 9, 13, 0.5) 62%,
+        rgba(8, 9, 13, 0.25) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(8, 9, 13, 0.15) 0%,
+        rgba(8, 9, 13, 0.65) 70%,
+        #08090d 100%
+      ) !important;
+    box-shadow: none !important;
+  }
+
+  .hero-split > .hero-split__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: stretch;
+    min-height: 100%;
+    padding: 24px 0 32px;
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-split {
+    grid-template-rows: minmax(clamp(460px, 75vh, 640px), auto) !important;
+  }
+
+  .hero-split.hero-split--tall {
+    grid-template-rows: minmax(clamp(540px, 88vh, 780px), auto) !important;
+  }
+
+  .hero-split > .hero-split__content {
+    padding: 20px 0 28px;
+  }
 }
 

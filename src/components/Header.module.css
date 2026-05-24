@@ -247,6 +247,10 @@
   .desktopNav {
     display: none;
   }
+
+  .ctaButton {
+    display: none;
+  }
   
   .mobileMenuToggle {
     display: block;

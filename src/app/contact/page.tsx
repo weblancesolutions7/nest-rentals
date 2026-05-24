@@ -1,13 +1,38 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { 
-  Headphones, Zap, Shield, Mail, Phone, MapPin, Globe, Check, ArrowRight, Lock, Clock, Award, Users
+import {
+  Headphones,
+  ShieldCheck,
+  Mail,
+  Phone,
+  MapPin,
+  Globe,
+  Check,
+  ArrowRight,
+  Lock,
+  Timer,
+  Star,
+  Users,
+  Clock,
+  ClipboardCheck,
 } from "lucide-react";
 import styles from "./page.module.css";
 
 export default function ContactPage() {
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+      document.querySelector(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
+
   const [formData, setFormData] = useState({
     fullName: "",
     companyName: "",
@@ -25,8 +50,22 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate API call
-    console.log("Form submitted:", formData);
+
+    const subject = encodeURIComponent(
+      formData.projectType
+        ? `NEST Inquiry: ${formData.projectType}`
+        : "NEST Equipment Rental Inquiry"
+    );
+    const body = encodeURIComponent(
+      `Name: ${formData.fullName}\n` +
+        `Company: ${formData.companyName || "N/A"}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n\n` +
+        `Message:\n${formData.message}`
+    );
+
+    window.location.href = `mailto:info@nest-rental.ae?subject=${subject}&body=${body}`;
+
     setSubmitted(true);
     setFormData({
       fullName: "",
@@ -34,9 +73,9 @@ export default function ContactPage() {
       email: "",
       phone: "",
       projectType: "",
-      message: ""
+      message: "",
     });
-    setTimeout(() => setSubmitted(false), 5000);
+    setTimeout(() => setSubmitted(false), 8000);
   };
 
   const contactCards = [
@@ -45,62 +84,82 @@ export default function ContactPage() {
       detail: "M-38, Mussafah Industrial Area",
       subDetail: "Abu Dhabi, United Arab Emirates",
       icon: <MapPin size={20} />,
-      bgImage: "linear-gradient(rgba(207, 0, 34, 0.05), rgba(6, 7, 10, 0.95))"
+      href: "https://www.google.com/maps/search/?api=1&query=M-38+Mussafah+Industrial+Area+Abu+Dhabi",
+      external: true,
     },
     {
       title: "Phone",
       detail: "+971 56 507 0050",
       subDetail: "Melvern Ricky Moras (Managing Director)",
       icon: <Phone size={20} />,
-      bgImage: "linear-gradient(rgba(207, 0, 34, 0.05), rgba(6, 7, 10, 0.95))"
+      href: "tel:+971565070050",
     },
     {
       title: "Email",
       detail: "info@nest-rental.ae",
       subDetail: "We reply within 1 hour",
       icon: <Mail size={20} />,
-      bgImage: "linear-gradient(rgba(207, 0, 34, 0.05), rgba(6, 7, 10, 0.95))"
+      href: "mailto:info@nest-rental.ae",
     },
     {
       title: "Website",
       detail: "www.nest-rental.ae",
       subDetail: "Visit our website",
       icon: <Globe size={20} />,
-      bgImage: "linear-gradient(rgba(207, 0, 34, 0.05), rgba(6, 7, 10, 0.95))"
-    }
+      href: "https://www.nest-rental.ae",
+      external: true,
+    },
+  ];
+
+  const heroFeatures = [
+    {
+      title: "Expert Support",
+      desc: "Our team is ready to assist you 24/7.",
+      icon: Headphones,
+    },
+    {
+      title: "Quick Response",
+      desc: "We respond fast because your time matters.",
+      icon: Timer,
+    },
+    {
+      title: "Reliable Solutions",
+      desc: "Safe, efficient, and tailored power solutions.",
+      icon: ShieldCheck,
+    },
   ];
 
   const whyChooseList = [
     {
       title: "Safety First",
       desc: "All equipment is regularly inspected and maintained.",
-      icon: <Shield size={24} />
+      icon: ShieldCheck,
     },
     {
       title: "On-Time Delivery",
-      desc: "We deliver, install, and support - right on schedule.",
-      icon: <Clock size={24} />
+      desc: "We deliver, install, and support — right on schedule.",
+      icon: Clock,
     },
     {
       title: "Expert Team",
       desc: "Skilled professionals ready to support 24/7.",
-      icon: <Headphones size={24} />
+      icon: Headphones,
     },
     {
       title: "Quality Assured",
       desc: "Top-quality equipment from trusted brands.",
-      icon: <Award size={24} />
+      icon: Star,
     },
     {
       title: "Customer Focused",
       desc: "Your success is our top priority.",
-      icon: <Users size={24} />
+      icon: Users,
     },
     {
       title: "Compliant & Certified",
       desc: "All equipment meets industry standards.",
-      icon: <Shield size={24} />
-    }
+      icon: ClipboardCheck,
+    },
   ];
 
   return (
@@ -108,42 +167,54 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.container}>
-          <div className={styles.heroHeader}>
-            <span className={styles.sectionTagline}>CONTACT US</span>
-            <h1 className={styles.heroTitle}>
-              LET'S POWER<br />
-              <span className={styles.redText}>YOUR NEXT PROJECT.</span>
-            </h1>
-            <p className={styles.heroDesc}>
-              Have a question, need equipment, or ready to get started? Our team is here to provide the right power solutions and support from start to finish.
-            </p>
-          </div>
-        </div>
-      </section>
+          <div className={`${styles.heroGrid} hero-split hero-split--tall`}>
+            <div className={`${styles.heroLeft} hero-split__content`}>
+              <span className={styles.sectionTagline}>CONTACT US</span>
+              <h1 className={styles.heroTitle}>
+                LET&apos;S POWER<br />
+                <span className={styles.redText}>YOUR NEXT PROJECT.</span>
+              </h1>
+              <p className={styles.heroDesc}>
+                Have a question, need equipment, or ready to get started? Our team
+                is here to provide the right power solutions and support you from
+                start to finish.
+              </p>
 
-      {/* Info Stats Bar */}
-      <section className={styles.infoBarSection}>
-        <div className={styles.container}>
-          <div className={styles.infoBarGrid}>
-            <div className={`${styles.infoBarCard} glass-card`}>
-              <Headphones size={24} className={styles.infoBarIcon} />
-              <div>
-                <h3>Expert Support</h3>
-                <p>Our team is ready to assist you 24/7.</p>
+              <div className={styles.heroFeatures}>
+                {heroFeatures.map((feature, idx) => {
+                  const Icon = feature.icon;
+                  return (
+                    <React.Fragment key={feature.title}>
+                      <div className={styles.heroFeatureItem}>
+                        <Icon
+                          size={28}
+                          strokeWidth={1.5}
+                          className={styles.heroFeatureIcon}
+                          aria-hidden
+                        />
+                        <h3 className={styles.heroFeatureTitle}>{feature.title}</h3>
+                        <p className={styles.heroFeatureDesc}>{feature.desc}</p>
+                      </div>
+                      {idx < heroFeatures.length - 1 && (
+                        <div className={styles.heroFeatureDivider} aria-hidden />
+                      )}
+                    </React.Fragment>
+                  );
+                })}
               </div>
             </div>
-            <div className={`${styles.infoBarCard} glass-card`}>
-              <Zap size={24} className={styles.infoBarIcon} />
-              <div>
-                <h3>Quick Response</h3>
-                <p>We respond fast because your time matters.</p>
-              </div>
-            </div>
-            <div className={`${styles.infoBarCard} glass-card`}>
-              <Shield size={24} className={styles.infoBarIcon} />
-              <div>
-                <h3>Reliable Solutions</h3>
-                <p>Safe, efficient, and tailored power solutions.</p>
+
+            <div className={`${styles.heroRight} hero-split__media`}>
+              <div className={`${styles.heroImageWrapper} hero-split__frame`}>
+                <Image
+                  src="/images/about_office.png"
+                  alt="NEST Equipment Rental mobile office container"
+                  fill
+                  priority
+                  sizes="(max-width: 1100px) 100vw, 50vw"
+                  className={styles.heroImg}
+                />
+                <div className={`${styles.heroImgBlend} hero-split__blend`} />
               </div>
             </div>
           </div>
@@ -151,7 +222,7 @@ export default function ContactPage() {
       </section>
 
       {/* Form & Info Section */}
-      <section className={styles.formSection}>
+      <section id="contact-form" className={`${styles.formSection} scroll-anchor`}>
         <div className={styles.container}>
           <div className={styles.formLayout}>
             {/* Left Column: Contact Cards */}
@@ -163,8 +234,15 @@ export default function ContactPage() {
               </p>
 
               <div className={styles.cardsGrid}>
-                {contactCards.map((card, idx) => (
-                  <div key={idx} className={`${styles.contactInfoCard} glass-card`}>
+                {contactCards.map((card) => (
+                  <a
+                    key={card.title}
+                    href={card.href}
+                    className={`${styles.contactInfoCard} glass-card`}
+                    {...(card.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                  >
                     <div className={styles.cardHeaderFlex}>
                       <div className={styles.cardIconWrapper}>{card.icon}</div>
                       <div>
@@ -173,7 +251,7 @@ export default function ContactPage() {
                         <p className={styles.cardSecondaryDetail}>{card.subDetail}</p>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
@@ -347,19 +425,34 @@ export default function ContactPage() {
       {/* Why Choose Nest */}
       <section className={styles.whySection}>
         <div className={styles.container}>
-          <div className={styles.whyHeader}>
-            <span className={styles.sectionTagline}>WHY CHOOSE NEST?</span>
-            <h2 className={styles.whyTitle}>POWERED BY RELIABILITY.</h2>
-          </div>
+          <div className={styles.whyPanel}>
+            <div className={styles.whyHeader}>
+              <span className={styles.sectionTagline}>WHY CHOOSE NEST?</span>
+              <h2 className={styles.whyTitle}>POWERED BY RELIABILITY.</h2>
+            </div>
 
-          <div className={styles.whyGrid}>
-            {whyChooseList.map((item, index) => (
-              <div key={index} className={`${styles.whyCard} glass-card`}>
-                <div className={styles.whyCardIconWrapper}>{item.icon}</div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
-            ))}
+            <div className={styles.whyGrid}>
+              {whyChooseList.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <React.Fragment key={item.title}>
+                    <div className={styles.whyItem}>
+                      <Icon
+                        size={32}
+                        strokeWidth={1.5}
+                        className={styles.whyIcon}
+                        aria-hidden
+                      />
+                      <h3 className={styles.whyItemTitle}>{item.title}</h3>
+                      <p className={styles.whyItemDesc}>{item.desc}</p>
+                    </div>
+                    {idx < whyChooseList.length - 1 && (
+                      <div className={styles.whyDivider} aria-hidden />
+                    )}
+                  </React.Fragment>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -378,7 +471,7 @@ export default function ContactPage() {
             </div>
 
             <div className={styles.ctaActionsWrapper}>
-              <Link href="/contact" className={styles.ctaActionBtn}>
+              <Link href="#contact-form" className={styles.ctaActionBtn}>
                 Get a Quote Now <ArrowRight size={16} />
               </Link>
               <div className={styles.phoneBlock}>

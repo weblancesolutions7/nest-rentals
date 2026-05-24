@@ -126,10 +126,10 @@ export default function IndustriesPage() {
       {/* Hero Header */}
       <section className={styles.heroSection}>
         <div className={styles.container}>
-          <div className={styles.heroGrid}>
+          <div className={`${styles.heroGrid} hero-split hero-split--tall`}>
 
             {/* Left: text content */}
-            <div className={styles.heroLeft}>
+            <div className={`${styles.heroLeft} hero-split__content`}>
               <span className={styles.sectionTagline}>INDUSTRIES WE SERVE</span>
               <h1 className={styles.heroTitle}>
                 POWERING EVERY<br />
@@ -168,17 +168,17 @@ export default function IndustriesPage() {
             </div>
 
             {/* Right: blended image */}
-            <div className={styles.heroRight}>
-              <div className={styles.heroImageWrapper}>
+            <div className={`${styles.heroRight} hero-split__media`}>
+              <div className={`${styles.heroImageWrapper} hero-split__frame`}>
                 <Image
                   src="/images/Website Images/6e81aa12-b980-4cc8-ba9f-36ae66496939.png"
                   alt="NEST Equipment — Powering Every Industry"
                   fill
                   priority
-                  sizes="(max-width: 992px) 100vw, 50vw"
+                  sizes="(max-width: 1100px) 100vw, 50vw"
                   className={styles.heroImg}
                 />
-                <div className={styles.heroImgBlend} />
+                <div className={`${styles.heroImgBlend} hero-split__blend`} />
               </div>
             </div>
 
