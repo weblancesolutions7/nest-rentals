@@ -4,6 +4,7 @@ import Image from "next/image";
 import { 
   Building2, Flame, Factory, Ship, ShieldAlert, Award, Shield, Clock, Headphones, Users, Check, ArrowRight, Phone
 } from "lucide-react";
+import CtaLogo from "@/components/CtaLogo";
 import styles from "./page.module.css";
 
 export default function IndustriesPage() {
@@ -257,9 +258,7 @@ export default function IndustriesPage() {
       <section className={styles.ctaSection}>
         <div className={styles.container}>
           <div className={styles.ctaCard}>
-            <div className={styles.ctaLogoWrapper}>
-              <span className={styles.ctaLogoLetter}>N</span>
-            </div>
+            <CtaLogo className={styles.ctaLogoWrapper} size={80} />
             
             <div className={styles.ctaTextWrapper}>
               <h2>Need the Right Solution for Your Industry?</h2>

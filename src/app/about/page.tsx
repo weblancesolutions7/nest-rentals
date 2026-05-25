@@ -15,6 +15,7 @@ import {
   Star,
   Lightbulb,
 } from "lucide-react";
+import CtaLogo from "@/components/CtaLogo";
 import styles from "./page.module.css";
 
 export default function AboutPage() {
@@ -61,7 +62,7 @@ export default function AboutPage() {
   const choosePoints = [
     {
       title: "Wide Range of Equipment",
-      desc: "From power to lighting and more – all under one roof."
+      desc: "From power to lighting and more all under one roof."
     },
     {
       title: "Expert Technical Team",
@@ -72,7 +73,7 @@ export default function AboutPage() {
       desc: "Customized packages to fit projects of any size."
     },
     {
-      title: "Well-Maintained Fleet",
+      title: "Well Maintained Fleet",
       desc: "Regularly inspected equipment for maximum performance."
     },
     {
@@ -271,9 +272,7 @@ export default function AboutPage() {
       <section className={styles.ctaSection}>
         <div className={styles.container}>
           <div className={styles.ctaCard}>
-            <div className={styles.ctaLogoWrapper}>
-              <span className={styles.ctaLogoLetter}>N</span>
-            </div>
+            <CtaLogo className={styles.ctaLogoWrapper} size={80} />
 
             <div className={styles.ctaTextWrapper}>
               <h2>Ready to Power Your Next Project?</h2>

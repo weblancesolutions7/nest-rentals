@@ -565,23 +565,8 @@
 }
 
 .ctaLogoWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 80px;
   height: 80px;
-  border-radius: 50%;
-  background: rgba(207, 0, 34, 0.1);
-  border: 1px solid rgba(207, 0, 34, 0.25);
-  flex-shrink: 0;
-}
-
-.ctaLogoLetter {
-  font-family: var(--font-outfit);
-  font-size: 40px;
-  font-weight: 900;
-  color: var(--primary);
-  line-height: 1;
 }
 
 .ctaTextWrapper {

@@ -5,6 +5,7 @@ import {
   Zap, Calendar, Users, Shield, Clock, Headphones, Award, ArrowRight, ChevronRight, Phone,
   Building2, Flame, Factory, Ship, ShieldAlert
 } from "lucide-react";
+import CtaLogo from "@/components/CtaLogo";
 import styles from "./page.module.css";
 
 const homeIndustries = [
@@ -34,7 +35,7 @@ const homeIndustries = [
     icon: ShieldAlert,
   },
   {
-    title: "Corporate & Large-Scale Exhibitions",
+    title: "Corporate & Large Scale Exhibitions",
     image: "/images/Website Images/cooperate and large exibitions.png",
     icon: Award,
   },
@@ -68,7 +69,7 @@ export default function Home() {
                 <span className={styles.redText}>ACROSS THE UAE</span>
               </h1>
               <p className={styles.heroSubText}>
-                Nest Equipment Rental powers the UAE’s critical industries with a comprehensive range of equipment and technical expertise. From power generation and electrical distribution to lighting, air solutions, and site infrastructure, we deliver fully integrated rental solutions designed for construction, energy, industrial, and large-scale event environments. We do not just supply equipment; we provide complete operational support to ensure efficiency, safety, and uninterrupted performance.
+                Nest Equipment Rental powers the UAE’s critical industries with a comprehensive range of equipment and technical expertise. From power generation and electrical distribution to lighting, air solutions, and site infrastructure, we deliver fully integrated rental solutions designed for construction, energy, industrial, and large scale event environments. We do not just supply equipment we provide complete operational support to ensure efficiency, safety, and uninterrupted performance.
               </p>
               <div className={styles.heroBtnGroup}>
                 <Link href="/services" className={styles.primaryBtn}>
@@ -121,7 +122,7 @@ export default function Home() {
             <div className={styles.featuresBarItem}>
               <div className={styles.iconCircle}><Clock size={18} /></div>
               <div>
-                <h4>On-Time Delivery</h4>
+                <h4>On Time Delivery</h4>
                 <p>Always on schedule, always ready</p>
               </div>
             </div>
@@ -199,7 +200,7 @@ export default function Home() {
               </div>
               <div className={styles.serviceContent}>
                 <h3>Lighting Solutions</h3>
-                <p>High-performance tower lights for maximum visibility.</p>
+                <p>High performance tower lights for maximum visibility.</p>
                 <Link href="/services#lighting" className={styles.serviceArrowBtn}>
                   <ChevronRight size={18} />
                 </Link>
@@ -308,8 +309,8 @@ export default function Home() {
             </div>
             <div className={`${styles.valueCard} glass-card`}>
               <Clock size={24} className={styles.valueIcon} />
-              <h4>On-Time Delivery</h4>
-              <p>We deliver, install, and support - right on schedule.</p>
+              <h4>On Time Delivery</h4>
+              <p>We deliver, install, and support right on schedule.</p>
             </div>
             <div className={`${styles.valueCard} glass-card`}>
               <Headphones size={24} className={styles.valueIcon} />
@@ -319,7 +320,7 @@ export default function Home() {
             <div className={`${styles.valueCard} glass-card`}>
               <Award size={24} className={styles.valueIcon} />
               <h4>Quality Assured</h4>
-              <p>Top-quality equipment from trusted brands.</p>
+              <p>Top quality equipment from trusted brands.</p>
             </div>
           </div>
         </div>
@@ -345,8 +346,8 @@ export default function Home() {
             <div className={styles.aboutContentCol}>
               <span className={styles.sectionTagline}>ABOUT US</span>
               <h2 className={styles.sectionTitle}>
-                Performance-Focused.<br />
-                <span className={styles.redText}>Reliability-Driven.</span>
+                Performance Focused.<br />
+                <span className={styles.redText}>Reliability Driven.</span>
               </h2>
               <p className={styles.aboutDescription}>
                 Nest Equipment Rental, established in 2025 in Abu Dhabi, provides dependable equipment rental solutions to the events, construction, oil & gas, and industrial sectors across the UAE.
@@ -362,7 +363,7 @@ export default function Home() {
                 <Zap size={20} className={styles.highlightIcon} />
                 <div>
                   <h4>Modern Fleet</h4>
-                  <p>Well-maintained, high performance equipment.</p>
+                  <p>Well maintained, high performance equipment.</p>
                 </div>
               </div>
               <div className={`${styles.highlightCard} glass-card`}>
@@ -389,12 +390,7 @@ export default function Home() {
         <div className={styles.container}>
           <div className={`${styles.ctaCalloutBox} box-glow`}>
             <div className={styles.ctaBackgroundGlow}></div>
-            <div className={styles.ctaLogoWrapper}>
-              <svg className={styles.ctaLogoSvg} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 85V15H32L68 68V15H85V85H68L32 32V85H15Z" fill="#cf0022" />
-              </svg>
-              <span className={styles.ctaLogoLetter}>N</span>
-            </div>
+            <CtaLogo className={styles.ctaLogoWrapper} size={72} />
 
             <div className={styles.ctaTextWrapper}>
               <h3>Ready to Power Your Next Event?</h3>

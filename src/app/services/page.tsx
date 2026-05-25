@@ -9,6 +9,7 @@ import {
   ArrowRight, Phone, Lightbulb, ChevronRight, Activity, Award, Cable,
   Fuel, FlaskConical, Package
 } from "lucide-react";
+import CtaLogo from "@/components/CtaLogo";
 import styles from "./page.module.css";
 
 interface SubSection {
@@ -588,9 +589,7 @@ export default function ServicesPage() {
       <section className={styles.ctaSection}>
         <div className={styles.container}>
           <div className={styles.ctaCard}>
-            <div className={styles.ctaLogoWrapper}>
-              <span className={styles.ctaLogoLetter}>N</span>
-            </div>
+            <CtaLogo className={styles.ctaLogoWrapper} size={80} />
             
             <div className={styles.ctaTextWrapper}>
               <h2>Need a Custom Integrated Configuration?</h2>

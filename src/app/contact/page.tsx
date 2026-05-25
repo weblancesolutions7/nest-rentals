@@ -19,6 +19,7 @@ import {
   Clock,
   ClipboardCheck,
 } from "lucide-react";
+import CtaLogo from "@/components/CtaLogo";
 import styles from "./page.module.css";
 
 export default function ContactPage() {
@@ -461,9 +462,7 @@ export default function ContactPage() {
       <section className={styles.ctaSection}>
         <div className={styles.container}>
           <div className={styles.ctaCard}>
-            <div className={styles.ctaLogoWrapper}>
-              <span className={styles.ctaLogoLetter}>N</span>
-            </div>
+            <CtaLogo className={styles.ctaLogoWrapper} size={80} />
             
             <div className={styles.ctaTextWrapper}>
               <h2>Ready to Power Your Next Project?</h2>
