@@ -231,13 +231,38 @@ export default function ServicesPage() {
         },
         {
           title: "Specialized Industrial & Utility Equipment",
-          desc: "In addition to power systems, we supply air compressors ranging from 150 CFM to 1200 CFM, designed for heavy-duty industrial applications such as construction, drilling, and pneumatic operations. We also offer load banks for generator testing and performance validation, ensuring systems operate at optimal capacity before deployment. Our diesel tanks are built for safe fuel storage and efficient fuel management, supporting uninterrupted operations across remote and large-scale project sites.",
+          desc: "In addition to power systems, we supply air compressors ranging from 150 CFM to 1200 CFM, designed for heavy-duty industrial applications such as construction, drilling, and pneumatic operations. We also provide welding machines for fabrication, structural work, and on-site repairs, along with load banks for generator testing and performance validation. Our diesel tanks are built for safe fuel storage and efficient fuel management, supporting uninterrupted operations across remote and large-scale project sites.",
           icon: <TrendingUp size={20} />
         },
         {
           title: "Specialized Procurement & Customized Solutions",
           desc: "We offer flexible procurement services based on specific client requirements, sourcing specialized equipment and components as needed. With a focus on quality, compatibility, and timely delivery, we ensure each solution is tailored to meet unique operational demands.",
           icon: <Wrench size={20} />
+        }
+      ]
+    },
+    {
+      id: "support-equipment",
+      tabLabel: "Support Equipment",
+      tagline: "Support Equipment Rental",
+      title: "Industrial Support & Welding Equipment Rental",
+      desc: "We rent air compressors, welding machines, diesel tanks, and load banks to support construction, industrial, and infrastructure projects across the UAE.",
+      image: "/images/Website Images/Support Equipment.png",
+      subsections: [
+        {
+          title: "Air Compressors",
+          desc: "We supply air compressors ranging from 150 CFM to 1200 CFM for construction, drilling, and pneumatic operations requiring reliable compressed air on site.",
+          icon: <TrendingUp size={20} />
+        },
+        {
+          title: "Welding Machines",
+          desc: "Our welding machines are available for construction, fabrication, pipeline work, and on-site repairs. Units are regularly inspected and maintained for safe, dependable performance in demanding field conditions.",
+          icon: <Wrench size={20} />
+        },
+        {
+          title: "Fuel Tanks & Load Banks",
+          desc: "We provide diesel storage tanks for safe fuel management and load banks for generator testing and commissioning, helping keep power systems validated and operations uninterrupted.",
+          icon: <Fuel size={20} />
         }
       ]
     },
@@ -265,8 +290,8 @@ export default function ServicesPage() {
           icon: <Lightbulb size={20} />
         },
         {
-          title: "Air & Industrial Equipment",
-          desc: "We supply air compressors ranging from 150 CFM to 1200 CFM, designed for demanding industrial and construction applications requiring reliable compressed air.",
+          title: "Air, Welding & Industrial Equipment",
+          desc: "We supply air compressors ranging from 150 CFM to 1200 CFM for demanding industrial and construction applications, plus welding machines for fabrication and on-site repair work.",
           icon: <Wrench size={20} />
         },
         {
@@ -358,15 +383,29 @@ export default function ServicesPage() {
     {
       anchorId: "support",
       title: "Support Equipment",
-      desc: "A wide range of support equipment to keep your operations running.",
+      desc: "Air compressors, fuel tanks, load banks, and other support equipment to keep your operations running.",
       image: "/images/Website Images/Support Equipment.png",
       icon: <Wrench size={22} />,
       href: "/contact",
       bullets: [
         "Air Compressors",
-        "Welding Machines",
         "Fuel Tanks",
-        "Load Banks & More",
+        "Load Banks",
+        "Diesel Storage Tanks",
+      ],
+    },
+    {
+      anchorId: "welding",
+      title: "Welding Machines",
+      desc: "Industrial welding machines for construction, fabrication, and on-site repair across the UAE.",
+      image: "/images/Website Images/Support Equipment.png",
+      icon: <Wrench size={22} />,
+      href: "/contact",
+      bullets: [
+        "MIG & ARC Welding Units",
+        "Construction & Fabrication",
+        "On-Site Repair Support",
+        "Well Maintained Fleet",
       ],
     },
     {
@@ -440,7 +479,7 @@ export default function ServicesPage() {
                 <span className={styles.redText}>RENTAL SOLUTIONS.</span>
               </h1>
               <p className={styles.heroDesc}>
-                From power generation to lighting and beyond, we provide everything you need to make your event or project a success.
+                From power generation and lighting to air compressors, welding machines, and site support equipment, we provide everything you need to make your event or project a success.
               </p>
 
               <div className={styles.heroHighlights}>

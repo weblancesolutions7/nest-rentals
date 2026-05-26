@@ -18,8 +18,10 @@ import {
   Users,
   Clock,
   ClipboardCheck,
+  AlertCircle,
 } from "lucide-react";
 import CtaLogo from "@/components/CtaLogo";
+import { sendContactEmail } from "@/lib/contactEmail";
 import styles from "./page.module.css";
 
 export default function ContactPage() {
@@ -43,40 +45,42 @@ export default function ContactPage() {
     message: ""
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (submitError) setSubmitError(null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
 
-    const subject = encodeURIComponent(
-      formData.projectType
-        ? `NEST Inquiry: ${formData.projectType}`
-        : "NEST Equipment Rental Inquiry"
-    );
-    const body = encodeURIComponent(
-      `Name: ${formData.fullName}\n` +
-      `Company: ${formData.companyName || "N/A"}\n` +
-      `Email: ${formData.email}\n` +
-      `Phone: ${formData.phone}\n\n` +
-      `Message:\n${formData.message}`
-    );
+    try {
+      await sendContactEmail(formData);
 
-    window.location.href = `mailto:info@nest-rental.ae?subject=${subject}&body=${body}`;
-
-    setSubmitted(true);
-    setFormData({
-      fullName: "",
-      companyName: "",
-      email: "",
-      phone: "",
-      projectType: "",
-      message: "",
-    });
-    setTimeout(() => setSubmitted(false), 8000);
+      setSubmitted(true);
+      setFormData({
+        fullName: "",
+        companyName: "",
+        email: "",
+        phone: "",
+        projectType: "",
+        message: "",
+      });
+      setTimeout(() => setSubmitted(false), 8000);
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Failed to send your message. Please try again or contact us directly.";
+      setSubmitError(message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactCards = [
@@ -347,8 +351,8 @@ export default function ContactPage() {
                   ></textarea>
                 </div>
 
-                <button type="submit" className={styles.submitBtn}>
-                  Send Message <ArrowRight size={16} />
+                <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"} <ArrowRight size={16} />
                 </button>
 
                 <div className={styles.secureBadge}>
@@ -356,6 +360,13 @@ export default function ContactPage() {
                   <span>Your information is safe and secure and will not be shared.</span>
                 </div>
               </form>
+
+              {submitError && (
+                <div className={styles.errorAlert} role="alert">
+                  <AlertCircle size={18} />
+                  <span>{submitError}</span>
+                </div>
+              )}
 
               {submitted && (
                 <div className={styles.successAlert}>

@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import styles from "../legal.module.css";
 
-export const metadata = {
-  title: "Privacy Policy | NEST Equipment Rental",
-  description: "Privacy policy for Nest Equipment Rental Sole Proprietorship L.L.C.",
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Privacy Policy",
+  description:
+    "Privacy policy for Nest Equipment Rental Sole Proprietorship L.L.C. Learn how NEST collects, uses, and protects your personal information.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

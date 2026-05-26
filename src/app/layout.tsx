@@ -5,6 +5,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageLoader from "@/components/PageLoader";
 import ScrollToTop from "@/components/ScrollToTop";
+import JsonLd from "@/components/JsonLd";
+import {
+  COMPANY,
+  DEFAULT_KEYWORDS,
+  DEFAULT_OG_IMAGE,
+  SITE_URL,
+  absoluteUrl,
+  encodeAssetPath,
+  getOrganizationSchema,
+  getWebSiteSchema,
+} from "@/lib/seo";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -18,10 +29,76 @@ const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const defaultDescription =
+  "NEST Equipment Rental offers generator rental, lighting towers, power distribution, air compressors, and welding machines across Abu Dhabi, Dubai, and the UAE. 24/7 technical support.";
+
 export const metadata: Metadata = {
-  title: "NEST Equipment Rental | Powering Operations Across UAE",
-  description: "Nest Equipment Rental provides dependable power generation, lighting tower, distribution, and support equipment rental solutions across the UAE.",
-  keywords: ["equipment rental", "generators", "lighting towers", "power distribution", "nest rental", "abu dhabi", "dubai", "uae"],
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default:
+      "Generator & Equipment Rental UAE | NEST Equipment Rental Abu Dhabi",
+    template: "%s | NEST Equipment Rental",
+  },
+  description: defaultDescription,
+  keywords: DEFAULT_KEYWORDS,
+  applicationName: COMPANY.shortName,
+  authors: [{ name: COMPANY.name, url: SITE_URL }],
+  creator: COMPANY.name,
+  publisher: COMPANY.name,
+  category: "Equipment Rental",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      "en-AE": SITE_URL,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_AE",
+    url: SITE_URL,
+    siteName: COMPANY.shortName,
+    title:
+      "Generator & Equipment Rental UAE | NEST Equipment Rental Abu Dhabi",
+    description: defaultDescription,
+    images: [
+      {
+        url: absoluteUrl(encodeAssetPath(DEFAULT_OG_IMAGE)),
+        width: 1200,
+        height: 630,
+        alt: `${COMPANY.brandName} - Equipment Rental UAE`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Generator & Equipment Rental UAE | NEST Equipment Rental Abu Dhabi",
+    description: defaultDescription,
+    images: [absoluteUrl(encodeAssetPath(DEFAULT_OG_IMAGE))],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
 };
 
 export default function RootLayout({
@@ -30,8 +107,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html lang="en-AE" className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
       <body>
+        <JsonLd data={[getOrganizationSchema(), getWebSiteSchema()]} />
         <ScrollToTop />
         <PageLoader />
         <Header />

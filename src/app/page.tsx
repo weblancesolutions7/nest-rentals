@@ -1,12 +1,32 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import {
   Zap, Calendar, Users, Shield, Clock, Headphones, Award, ArrowRight, ChevronRight, Phone,
   Building2, Flame, Factory, Ship, ShieldAlert
 } from "lucide-react";
 import CtaLogo from "@/components/CtaLogo";
+import { createPageMetadata } from "@/lib/seo";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = createPageMetadata({
+  absoluteTitle:
+    "Generator & Equipment Rental UAE | NEST Equipment Rental Abu Dhabi",
+  description:
+    "Rent silent generators (20–1500 kVA), lighting towers, power distribution, air compressors, and welding machines across Abu Dhabi, Dubai, and the UAE. 24/7 support from NEST Equipment Rental.",
+  path: "/",
+  keywords: [
+    "generator rental Abu Dhabi",
+    "generator rental Dubai",
+    "equipment rental UAE",
+    "lighting tower rental",
+    "power rental UAE",
+    "construction generator hire",
+    "event power rental UAE",
+    "industrial generator rental",
+  ],
+});
 
 const homeIndustries = [
   {
@@ -180,7 +200,7 @@ export default function Home() {
             {/* Card 1 */}
             <div className={`${styles.serviceCard} glass-card`}>
               <div className={styles.serviceImageContainer}>
-                <Image src="/images/Website Images/Power Genrator.png" alt="Power Generation" fill className={styles.serviceImg} />
+                <Image src="/images/Website Images/Power Genrator.png" alt="Power Generation" fill sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw" className={styles.serviceImg} />
                 <div className={styles.serviceIconBadge}><Zap size={20} /></div>
               </div>
               <div className={styles.serviceContent}>
@@ -195,7 +215,7 @@ export default function Home() {
             {/* Card 2 */}
             <div className={`${styles.serviceCard} glass-card`}>
               <div className={styles.serviceImageContainer}>
-                <Image src="/images/Website Images/Lighting Soloutions.png" alt="Lighting Solutions" fill className={styles.serviceImg} />
+                <Image src="/images/Website Images/Lighting Soloutions.png" alt="Lighting Solutions" fill sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw" className={styles.serviceImg} />
                 <div className={styles.serviceIconBadge}><Award size={20} /></div>
               </div>
               <div className={styles.serviceContent}>
@@ -210,7 +230,7 @@ export default function Home() {
             {/* Card 3 */}
             <div className={`${styles.serviceCard} glass-card`}>
               <div className={styles.serviceImageContainer}>
-                <Image src="/images/Website Images/power distrubutions.png" alt="Power Distribution" fill className={styles.serviceImg} />
+                <Image src="/images/Website Images/power distrubutions.png" alt="Power Distribution" fill sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw" className={styles.serviceImg} />
                 <div className={styles.serviceIconBadge}><Zap size={20} /></div>
               </div>
               <div className={styles.serviceContent}>
@@ -225,7 +245,7 @@ export default function Home() {
             {/* Card 4 */}
             <div className={`${styles.serviceCard} glass-card`}>
               <div className={styles.serviceImageContainer}>
-                <Image src="/images/Website Images/Support Equipment.png" alt="Support Equipment" fill className={styles.serviceImg} />
+                <Image src="/images/Website Images/Support Equipment.png" alt="Support Equipment" fill sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw" className={styles.serviceImg} />
                 <div className={styles.serviceIconBadge}><Shield size={20} /></div>
               </div>
               <div className={styles.serviceContent}>

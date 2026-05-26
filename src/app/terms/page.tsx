@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import styles from "../legal.module.css";
 
-export const metadata = {
-  title: "Terms & Conditions | NEST Equipment Rental",
-  description: "Terms and conditions for Nest Equipment Rental Sole Proprietorship L.L.C.",
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Terms & Conditions",
+  description:
+    "Terms and conditions for equipment rental services provided by Nest Equipment Rental Sole Proprietorship L.L.C. across the United Arab Emirates.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (
