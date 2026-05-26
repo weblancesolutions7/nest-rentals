@@ -39,7 +39,7 @@ export default function AboutPage() {
     },
     {
       title: "On-Time Delivery",
-      desc: "We respect time and ensure on-schedule delivery.",
+      desc: "We respect time and ensure on schedule delivery.",
       icon: Clock,
     },
     {
@@ -162,7 +162,7 @@ export default function AboutPage() {
               </h2>
               <div className={styles.storyText}>
                 <p>
-                  Our core offering includes diesel generators ranging from 20 KVA to 1500 KVA, equipped with advanced synchronization capabilities for high-demand projects. We also provide changeover and ATS (Automatic Transfer Switch) systems, enabling seamless load switching, load sharing, and uninterrupted power transfer for critical operations.
+                  Our core offering includes diesel generators ranging from 20 KVA to 1500 KVA, equipped with advanced synchronization capabilities for high demand projects. We also provide changeover and ATS (Automatic Transfer Switch) systems, enabling seamless load switching, load sharing, and uninterrupted power transfer for critical operations.
                 </p>
                 <p>
                   In addition, our fleet includes air compressors, tower lights, welding machines, cables, distribution systems, diesel tanks, and load banks, all maintained to the highest standards of performance, safety, and reliability.

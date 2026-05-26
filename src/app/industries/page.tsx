@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { 
+import {
   Building2, Flame, Factory, Ship, ShieldAlert, Award, Shield, Clock, Headphones, Users, Check, ArrowRight, Phone
 } from "lucide-react";
 import CtaLogo from "@/components/CtaLogo";
@@ -27,7 +27,7 @@ export default function IndustriesPage() {
       title: "Oil & Gas and Energy",
       icon: <Flame size={24} />,
       image: "/images/Website Images/oil and gas.png",
-      desc: "We support high-demand environments with advanced power management systems, load banks, diesel storage tanks, and synchronized generator solutions, ensuring precision, uptime, and operational stability.",
+      desc: "We support high demand environments with advanced power management systems, load banks, diesel storage tanks, and synchronized generator solutions, ensuring precision, uptime, and operational stability.",
       bullets: [
         "Power Management Systems",
         "Load Banks & Synchronization",
@@ -53,9 +53,9 @@ export default function IndustriesPage() {
       title: "Mining, Marine, Ports & Remote Sites",
       icon: <Ship size={24} />,
       image: "/images/Website Images/Marine.png",
-      desc: "We provide reliable off-grid power, lighting, and electrical solutions for demanding marine, mining, port, and remote environments. Our generators, tower lights, fuel storage, and distribution systems are built to perform in isolated, high-humidity, and corrosive conditions, ensuring continuous operations with minimal downtime.",
+      desc: "We provide reliable off grid power, lighting, and electrical solutions for demanding marine, mining, port, and remote environments. Our generators, tower lights, fuel storage, and distribution systems are built to perform in isolated, high-humidity, and corrosive conditions, ensuring continuous operations with minimal downtime.",
       bullets: [
-        "Off-grid Power Solutions",
+        "Off grid Power Solutions",
         "Fuel Storage & Handling",
         "Tower Lights & Site Lighting",
         "Cables & Distribution"
@@ -66,7 +66,7 @@ export default function IndustriesPage() {
       title: "Emergency & Government Projects",
       icon: <ShieldAlert size={24} />,
       image: "/images/Website Images/emergancy.png",
-      desc: "Our rapid-deployment solutions include generators, lighting, distribution systems, and technical support to ensure uninterrupted operations during critical situations.",
+      desc: "Our rapid deployment solutions include generators, lighting, distribution systems, and technical support to ensure uninterrupted operations during critical situations.",
       bullets: [
         "Emergency Power Systems",
         "Lighting & Communication",
@@ -139,7 +139,7 @@ export default function IndustriesPage() {
                 <span className={styles.redText}>MISSION.</span>
               </h1>
               <p className={styles.heroDesc}>
-                From construction sites to large-scale events, we provide reliable equipment rental solutions tailored to the unique demands of every industry.
+                From construction sites to large scale events, we provide reliable equipment rental solutions tailored to the unique demands of every industry.
               </p>
 
               {/* Inline stats */}
@@ -194,11 +194,11 @@ export default function IndustriesPage() {
             {industriesList.map((ind) => (
               <div key={ind.id} className={`${styles.industryCard} glass-card`}>
                 <div className={styles.imageContainer}>
-                  <Image 
-                    src={ind.image} 
-                    alt={ind.title} 
-                    fill 
-                    className={styles.industryImg} 
+                  <Image
+                    src={ind.image}
+                    alt={ind.title}
+                    fill
+                    className={styles.industryImg}
                   />
                 </div>
                 <div className={styles.cardHeader}>
@@ -207,7 +207,7 @@ export default function IndustriesPage() {
                 </div>
                 <div className={styles.cardContent}>
                   <p className={styles.cardDescription}>{ind.desc}</p>
-                  
+
                   <ul className={styles.cardBullets}>
                     {ind.bullets.map((bullet, idx) => (
                       <li key={idx}>
@@ -259,7 +259,7 @@ export default function IndustriesPage() {
         <div className={styles.container}>
           <div className={styles.ctaCard}>
             <CtaLogo className={styles.ctaLogoWrapper} size={80} />
-            
+
             <div className={styles.ctaTextWrapper}>
               <h2>Need the Right Solution for Your Industry?</h2>
               <p className={styles.redText}>Let's power your next project with confidence.</p>

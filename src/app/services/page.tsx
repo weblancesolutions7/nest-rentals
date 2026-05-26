@@ -3,9 +3,9 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { 
-  Zap, SlidersHorizontal, Cpu, Layers, Settings, ShieldAlert, Wrench, 
-  TrendingUp, Maximize2, Shield, Clock, Headphones, Users, Check, 
+import {
+  Zap, SlidersHorizontal, Cpu, Layers, Settings, ShieldAlert, Wrench,
+  TrendingUp, Maximize2, Shield, Clock, Headphones, Users, Check,
   ArrowRight, Phone, Lightbulb, ChevronRight, Activity, Award, Cable,
   Fuel, FlaskConical, Package
 } from "lucide-react";
@@ -286,7 +286,7 @@ export default function ServicesPage() {
     },
     {
       title: "On-Time Delivery",
-      desc: "We deliver, install, and support — right on schedule.",
+      desc: "We deliver, install, and support  right on schedule.",
       icon: <Clock size={22} />,
     },
     {
@@ -442,7 +442,7 @@ export default function ServicesPage() {
               <p className={styles.heroDesc}>
                 From power generation to lighting and beyond, we provide everything you need to make your event or project a success.
               </p>
-              
+
               <div className={styles.heroHighlights}>
                 <div className={styles.heroHighlightItem}>
                   <div className={styles.heroHighlightIcon}><Shield size={24} /></div>
@@ -451,7 +451,7 @@ export default function ServicesPage() {
                     <p>High-quality equipment you can trust.</p>
                   </div>
                 </div>
-                
+
                 <div className={styles.heroHighlightItem}>
                   <div className={styles.heroHighlightIcon}><Clock size={24} /></div>
                   <div className={styles.heroHighlightText}>
@@ -459,7 +459,7 @@ export default function ServicesPage() {
                     <p>Always on schedule, every time.</p>
                   </div>
                 </div>
-                
+
                 <div className={styles.heroHighlightItem}>
                   <div className={styles.heroHighlightIcon}><Users size={24} /></div>
                   <div className={styles.heroHighlightText}>
@@ -467,7 +467,7 @@ export default function ServicesPage() {
                     <p>Skilled professionals ready to support.</p>
                   </div>
                 </div>
-                
+
                 <div className={styles.heroHighlightItem}>
                   <div className={styles.heroHighlightIcon}><Award size={24} /></div>
                   <div className={styles.heroHighlightText}>
@@ -477,7 +477,7 @@ export default function ServicesPage() {
                 </div>
               </div>
             </div>
-            
+
             <div className={`${styles.heroRight} hero-split__media`}>
               <div className={`${styles.heroImageWrapper} hero-split__frame`}>
                 <Image
@@ -500,7 +500,7 @@ export default function ServicesPage() {
           <div className={styles.overviewHeader}>
             <span className={styles.sectionTagline}>WHAT WE OFFER</span>
             <h2 className={styles.overviewTitle}>Our Full Range of <span className={styles.redText}>Services</span></h2>
-            <p className={styles.overviewDesc}>From power generation to cabling and everything in between — we provide comprehensive equipment rental solutions built for demanding environments.</p>
+            <p className={styles.overviewDesc}>From power generation to cabling and everything in between we provide comprehensive equipment rental solutions built for demanding environments.</p>
           </div>
 
           <div className={styles.overviewGrid}>
@@ -590,7 +590,7 @@ export default function ServicesPage() {
         <div className={styles.container}>
           <div className={styles.ctaCard}>
             <CtaLogo className={styles.ctaLogoWrapper} size={80} />
-            
+
             <div className={styles.ctaTextWrapper}>
               <h2>Need a Custom Integrated Configuration?</h2>
               <p className={styles.redText}>Let's design and size your project power systems.</p>

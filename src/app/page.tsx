@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { 
+import {
   Zap, Calendar, Users, Shield, Clock, Headphones, Award, ArrowRight, ChevronRight, Phone,
   Building2, Flame, Factory, Ship, ShieldAlert
 } from "lucide-react";
@@ -122,7 +122,7 @@ export default function Home() {
             <div className={styles.featuresBarItem}>
               <div className={styles.iconCircle}><Clock size={18} /></div>
               <div>
-                <h4>On Time Delivery</h4>
+                <h4>On-Time Delivery</h4>
                 <p>Always on schedule, always ready</p>
               </div>
             </div>
@@ -309,7 +309,7 @@ export default function Home() {
             </div>
             <div className={`${styles.valueCard} glass-card`}>
               <Clock size={24} className={styles.valueIcon} />
-              <h4>On Time Delivery</h4>
+              <h4>On-Time Delivery</h4>
               <p>We deliver, install, and support right on schedule.</p>
             </div>
             <div className={`${styles.valueCard} glass-card`}>
