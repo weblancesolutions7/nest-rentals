@@ -212,7 +212,7 @@ export default function ContactPage() {
             <div className={`${styles.heroRight} hero-split__media`}>
               <div className={`${styles.heroImageWrapper} hero-split__frame`}>
                 <Image
-                  src="/images/about_office.png"
+                  src="/Home and contact.png"
                   alt="NEST Equipment Rental mobile office container"
                   fill
                   priority

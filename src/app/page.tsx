@@ -69,10 +69,11 @@ export default function Home() {
         {/* Background Image with Dark Overlay */}
         <div className={styles.heroBgContainer}>
           <Image
-            src="/images/Website Images/Home page.png"
-            alt="NEST Equipment Rental operations"
+            src="/Home_page_hero_img.png"
+            alt="NEST Equipment Rental generator fleet"
             fill
             priority
+            sizes="100vw"
             className={styles.heroBgImage}
           />
           <div className={styles.heroOverlay}></div>
@@ -163,12 +164,12 @@ export default function Home() {
           <div className={styles.statsGrid}>
             <div className={`${styles.statCard} glass-card`}>
               <Calendar size={28} className={styles.statIcon} />
-              <h3>500+</h3>
+              <h3>800+</h3>
               <p>Events Powered</p>
             </div>
             <div className={`${styles.statCard} glass-card`}>
               <Zap size={28} className={styles.statIcon} />
-              <h3>1000+</h3>
+              <h3>1500+</h3>
               <p>Equipment Units</p>
             </div>
             <div className={`${styles.statCard} glass-card`}>
@@ -354,7 +355,7 @@ export default function Home() {
             <div className={styles.aboutImageCol}>
               <div className={styles.aboutImageContainer}>
                 <Image
-                  src="/images/about_office.png"
+                  src="/Home and contact.png"
                   alt="NEST Equipment Yard Office"
                   fill
                   className={styles.aboutImg}

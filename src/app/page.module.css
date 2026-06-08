@@ -30,8 +30,8 @@
 
 .heroBgImage {
   object-fit: cover;
-  object-position: center;
-  filter: brightness(0.65) contrast(1.1);
+  object-position: left center;
+  filter: brightness(0.75) contrast(1.05);
 }
 
 .heroBgVideo {
@@ -48,7 +48,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(6, 7, 10, 0.95) 0%, rgba(6, 7, 10, 0.7) 50%, rgba(6, 7, 10, 0.95) 100%);
+  background: linear-gradient(135deg, rgba(6, 7, 10, 0.88) 0%, rgba(6, 7, 10, 0.58) 50%, rgba(6, 7, 10, 0.88) 100%);
   z-index: 1;
 }
 

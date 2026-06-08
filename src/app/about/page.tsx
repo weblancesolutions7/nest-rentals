@@ -177,8 +177,8 @@ export default function AboutPage() {
             <div className={styles.storyRight}>
               <div className={styles.storyImageWrapper}>
                 <Image
-                  src="/images/hero_bg.png"
-                  alt="NEST event operations stage lights"
+                  src="/about us(OUR STORY).png"
+                  alt="NEST equipment rental at a night event site"
                   fill
                   className={styles.storyImage}
                 />
@@ -233,8 +233,8 @@ export default function AboutPage() {
             <div className={styles.chooseLeft}>
               <div className={styles.chooseImageWrapper}>
                 <Image
-                  src="/images/engineers_team.png"
-                  alt="NEST engineers team"
+                  src="/about us - WHY CHOOSE NEST.png"
+                  alt="NEST equipment rental generator in a branded workshop"
                   fill
                   className={styles.chooseImage}
                 />

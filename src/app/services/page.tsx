@@ -382,8 +382,8 @@ export default function ServicesPage() {
     },
     {
       anchorId: "support",
-      title: "Support Equipment",
-      desc: "Air compressors, fuel tanks, load banks, and other support equipment to keep your operations running.",
+      title: "Auxiliary Equipment",
+      desc: "Air compressors, fuel tanks, load banks, and diesel storage tanks to keep your operations running.",
       image: "/images/Website Images/Support Equipment.png",
       icon: <Wrench size={22} />,
       href: "/contact",
