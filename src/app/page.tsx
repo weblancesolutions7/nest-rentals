@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
-  Zap, Calendar, Users, Shield, Clock, Headphones, Award, ArrowRight, ChevronRight, Phone,
+  Zap, Users, Shield, Clock, Headphones, Award, ArrowRight, ChevronRight, Phone,
   Building2, Flame, Factory, Ship, ShieldAlert
 } from "lucide-react";
 import CtaLogo from "@/components/CtaLogo";
@@ -163,14 +163,14 @@ export default function Home() {
         <div className={styles.container}>
           <div className={styles.statsGrid}>
             <div className={`${styles.statCard} glass-card`}>
-              <Calendar size={28} className={styles.statIcon} />
-              <h3>800+</h3>
-              <p>Events Powered</p>
+              <Clock size={28} className={styles.statIcon} />
+              <h3>On-Time</h3>
+              <p>Equipment Mobilization</p>
             </div>
             <div className={`${styles.statCard} glass-card`}>
-              <Zap size={28} className={styles.statIcon} />
-              <h3>1500+</h3>
-              <p>Equipment Units</p>
+              <Award size={28} className={styles.statIcon} />
+              <h3>Dedicated</h3>
+              <p>After-Sales Service</p>
             </div>
             <div className={`${styles.statCard} glass-card`}>
               <Users size={28} className={styles.statIcon} />
